@@ -25,8 +25,6 @@ class _TransaksiPageState extends StateMVC<TransaksiPage> with SingleTickerProvi
   void initState() {
     _tabController = new TabController(length: 2, vsync: this, initialIndex: 0);
     super.initState();
-    // print(_tabController.indexIsChanging);
-    // _tabController.addListener(_setActiveTabIndex);
   }
 
   void _setTabSelected(index){

@@ -15,7 +15,7 @@ class PulsaController extends ControllerMVC {
   GlobalKey<FormState> loginFormKey;
   GlobalKey<ScaffoldState> scaffoldKey;
   OverlayEntry loader;
-  List<PulsaData> pulsaDataList = <PulsaData>[];
+  List<PPOB> pulsaDataList = <PPOB>[];
   Map param = {};
   String type;
   PulsaController() {
@@ -24,8 +24,8 @@ class PulsaController extends ControllerMVC {
 
   Future<void> listenForListPulsa({String type, String message}) async {
     pulsaDataList.clear();
-    final Stream<PulsaData> stream = await getListPulsa(type, operator);
-    stream.listen((PulsaData _data) {
+    final Stream<PPOB> stream = await getListPulsa(type, operator);
+    stream.listen((PPOB _data) {
       if (!pulsaDataList.contains(_data)) {
         setState(() {
           pulsaDataList.add(_data);

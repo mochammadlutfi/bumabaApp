@@ -1,9 +1,7 @@
 import 'package:bumaba/Core/helper.dart';
-import 'package:bumaba/Modules/Simla/components/simlaPin.dart';
 import 'package:bumaba/Modules/Simla/simla_model.dart';
 import 'package:bumaba/Modules/Simpanan/simpanan_model.dart';
 import 'package:bumaba/Modules/Transaksi/transaksi_model.dart';
-import 'package:bumaba/Modules/User/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -59,11 +57,17 @@ class SimlaController extends ControllerMVC {
       if(nominal < 10000){
         Fluttertoast.showToast(msg: 'Jumlah Minimal Isi Saldo Rp10.000');
       }else{
-        Navigator.of(scaffoldKey.currentContext).pushNamed('/PaymentMethod', arguments: RouteArgument(param : { 'nominal' : nominal, 'slug' : 'deposit', 'service' : 'sukarela'}));
+        Map parameter = {
+          'nominal' : nominal, 
+          'slug' : 'deposit', 
+          'service' : 'sukarela',
+          'title' : 'Isi Saldo Simpanan Sukarela'
+        };
+        Navigator.of(scaffoldKey.currentContext).pushNamed('/PaymentMethod', arguments: RouteArgument(param : parameter));
       }
     }
   }
-
+ 
   void validateAnggota(String phone, String avatar) async{
     loader = Helper.overlayLoader(state.context);
     FocusScope.of(state.context).unfocus();

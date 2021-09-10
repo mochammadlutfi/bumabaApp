@@ -8,6 +8,7 @@ import '../../../Config/color.dart';
 
 import '../Main/main_app_bar.dart';
 import 'components/bank_list.dart';
+import 'components/payment_method_simla.dart';
 
 // ignore: must_be_immutable
 class PaymentMethodPage extends StatefulWidget {
@@ -33,7 +34,6 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
   @override
   void initState() {
     param = widget.routeArgument.param;
-    print(param["tagihan_id"]);
     _con.listenBankList();
     super.initState();
   }
@@ -44,42 +44,101 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
     return new Scaffold(
       key: _con.scaffoldKey,
       appBar: mainappbar('Metode Pembayaran'),
+      backgroundColor: bodylight,
       body: _con.bankList.isEmpty ? CircularLoadingWidget(height: size.height / 2) : 
         RefreshIndicator(
           onRefresh: _con.refreshList,
           child: Column(
             children: [
-              
                 Container(
-                  margin: EdgeInsets.only(top:16),
+                  margin: EdgeInsets.symmetric(vertical:10, horizontal: 8),
                   width: size.width,
-                  padding: EdgeInsets.fromLTRB(20, 17, 20, 21),
-                  color: Colors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Isi Saldo",
-                        style: TextStyle(fontSize: 14),
+                      Container(
+                        width: size.width,
+                        margin: EdgeInsets.only(bottom: 1),
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        decoration: BoxDecoration(
+                          color : Colors.white,
+                          borderRadius: new BorderRadius.only(
+                            topLeft: new Radius.circular(6),
+                            topRight: new Radius.circular(6)
+                          )
+                        ),
+                        child: Text(
+                          param["title"],
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        ),
                       ),
-                      SizedBox(height: 4,),
-                      Text(
-                        NumberFormat.currency(locale: 'id', symbol: 'Rp', decimalDigits : 0).format(widget.routeArgument.param["nominal"]).toString(),
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              
+                      Container(
+                        width: size.width,
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        decoration: BoxDecoration(
+                          color : Colors.white,
+                          borderRadius: new BorderRadius.only(
+                            bottomLeft: new Radius.circular(4),
+                            bottomRight: new Radius.circular(4)
+                          )
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(bottom: 4),
+                                    child: Text(
+                                      NumberFormat.currency(locale: 'id', symbol: 'Rp', decimalDigits : 0).format(widget.routeArgument.param["nominal"]).toString(),
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                  param["slug"] != 'ppob' ? SizedBox.shrink() :
+                                  Padding(
+                                    padding: EdgeInsets.only(bottom: 4),
+                                    child: Text(
+                                      param["phone"],
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ),
+
+                                  Padding(
+                                    padding: EdgeInsets.only(bottom: 4),
+                                    child: Text(
+                                      param["service"],
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            
+                          ],
+                        )
                       ),
                     ],
                   ),
-                ), 
+                ),
+
+                if(param["service"] != 'sukarela')
+                PaymentMethodSimlaWidget(
+                  ontap : (){
+
+                  }
+                ),
 
                 Container(
-                  margin: EdgeInsets.fromLTRB(10, 16, 10, 0),
+                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                   width: size.width,
                   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                   decoration: BoxDecoration(
                     color: mainColor,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        topRight: Radius.circular(10),
+                        topLeft: Radius.circular(6),
+                        topRight: Radius.circular(6),
                     ),
                   ),
                   child: Column(
@@ -101,8 +160,6 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                   child: Container(
                     margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     width: size.width,
-                    // padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                    color: Colors.white,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
@@ -120,7 +177,6 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                               _con.payment.tagihanId = param["tagihan_id"];
                               _con.payRequest();
                             });
-                            
                           },
                         );
                       },

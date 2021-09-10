@@ -3,7 +3,6 @@ import 'package:bumaba/Modules/Simla/simla_repository.dart';
 import 'package:bumaba/route_argument.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 // ignore: unused_import
 import '../../../Config/color.dart';

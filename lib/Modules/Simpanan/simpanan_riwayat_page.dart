@@ -1,5 +1,4 @@
 
-import 'package:bumaba/Config/color.dart';
 import 'package:bumaba/Modules/Simpanan/simpanan_controller.dart';
 import 'package:bumaba/Modules/Transaksi/components/transaksi_empty.dart';
 import 'package:bumaba/Modules/Transaksi/components/transaksi_list_item.dart';
@@ -71,14 +70,6 @@ class _SimpananRiwayatPageState extends StateMVC<SimpananRiwayatPage> {
                     noItemsFoundIndicatorBuilder: (_) => TransaksiEmpty()
                   ),
                 ),
-                // ListView.builder(
-                //   scrollDirection: Axis.vertical,
-                //   shrinkWrap: true,
-                //   itemCount: _con.transaksi.length,
-                //   itemBuilder: (BuildContext context, int index) {
-                //     return TransaksiListItem(transaksi: _con.transaksi.elementAt(index), slug : widget.routeArgument.id);
-                //   },
-                // ),
               ),
             ),
           ],

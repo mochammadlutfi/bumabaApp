@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bumaba/Modules/Simla/simla_model.dart';
-import 'package:bumaba/Modules/Simla/simla_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:http/http.dart' as http;
@@ -107,7 +105,7 @@ Future<User> setAppAccess(status) async {
     // currentUser.value.securePin = false;
   // }
   // ignore: invalid_use_of_protected_member
-  currentUser.notifyListeners();
+  // currentUser.notifyListeners();
   return currentUser.value;
 }
 
@@ -121,7 +119,7 @@ Future<User> getCurrentUser() async {
     currentUser.value.auth = false;
   }
   currentUser.value.appaccess = false;
-  currentUser.notifyListeners();
+  // currentUser.notifyListeners();
   return currentUser.value;
 }
 

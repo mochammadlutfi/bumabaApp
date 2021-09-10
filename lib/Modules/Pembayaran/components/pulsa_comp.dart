@@ -4,13 +4,15 @@ import '../../../Config/color.dart';
 import '../pulsa_data_model.dart';
 
 class PulsaDataItem extends StatelessWidget {
-  final PulsaData data;
+  final PPOB data;
   final String slug;
+  final VoidCallback ontap;
 
   const PulsaDataItem({
     Key key,
     this.data,
-    this.slug
+    this.slug,
+    this.ontap
   }) : super(key: key);
 
   @override
@@ -22,7 +24,7 @@ class PulsaDataItem extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: BorderRadius.circular(6),
-        onTap: () {},
+        onTap: ontap,
         child: Container(
           width: double.infinity,
           padding: EdgeInsets.all(10),

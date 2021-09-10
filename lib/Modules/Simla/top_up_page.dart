@@ -5,16 +5,6 @@ import 'package:currency_text_input_formatter/currency_text_input_formatter.dart
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
-
-
-// import '../elements/BlockButtonWidget.dart';
-// import '../repository/user_repository.dart' as userRepo;
-// import 'Repository/SettingRepository.dart' as settingsRepo;
-// import 'elements/HomeSlider/HomeSliderWidget.dart';
-// import 'elements/Category/CaregoriesCarouselWidget.dart';
-
-// import 'elements/Toko/TokoListWidget.dart';
-
 class TopUpPage extends StatefulWidget {
   final GlobalKey<ScaffoldState> parentScaffoldKey;
 
@@ -65,7 +55,7 @@ class _TopUpPageState extends StateMVC<TopUpPage> {
                     children: [
                       Text(
                         "Nominal Saldo",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 14),
                       ),
                       SizedBox(height: 10,),
                     

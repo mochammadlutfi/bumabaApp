@@ -1,3 +1,4 @@
+import 'package:bumaba/Modules/Pembayaran/pulsa_data_model.dart';
 import 'package:bumaba/Modules/Transaksi/transaksi_model.dart';
 
 class Bank {
@@ -44,6 +45,7 @@ class Payment {
     Bank bankdetail;
     Transaksi transaksi;
     List tagihanId;
+    PPOB ppob;
 
     Payment();
 
@@ -89,7 +91,4 @@ class Payment {
     map["tagihan_id"] = tagihanId;
     return map;
   }
-
-
-
 }

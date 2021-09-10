@@ -7,6 +7,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../route_argument.dart';
 
+// ignore: must_be_immutable
 class PulsaPage extends StatefulWidget {
   final GlobalKey<ScaffoldState> parentScaffoldKey;
   RouteArgument routeArgument;
@@ -19,6 +20,7 @@ class PulsaPage extends StatefulWidget {
 
 class _PulsaPageState extends StateMVC<PulsaPage> with SingleTickerProviderStateMixin {
   PulsaController _con;
+  TextEditingController phoneController = new TextEditingController();
 
   _PulsaPageState() : super(PulsaController()) {
     _con = controller;                                                                                                                                          
@@ -30,6 +32,7 @@ class _PulsaPageState extends StateMVC<PulsaPage> with SingleTickerProviderState
     _con.listenOperator();
     _con.listenForListPulsa(type: widget.routeArgument.id);
     super.initState();
+    phoneController.text = _con.nohp;
   }
 
   @override
@@ -77,31 +80,43 @@ class _PulsaPageState extends StateMVC<PulsaPage> with SingleTickerProviderState
                 automaticallyImplyLeading: false,
                 title: new Container(
                     width: double.infinity,
-                    padding: EdgeInsets.fromLTRB(16, 10, 22, 10),
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Nomor HP",
+                          "Nomor Ponsel",
                           style: TextStyle(fontSize: 13, color: greytext, fontWeight: FontWeight.w500),
                         ),
                         SizedBox(height: 3),
-                        Container(
-                          padding: EdgeInsets.fromLTRB(15, 0, 22, 0),
-                          // padding: EdgeInsets.all(0),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.transparent),
-                            borderRadius: BorderRadius.circular(6),
-                            color: bgLight,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Expanded(
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 9,
+                              child: SizedBox(
+                                height: 40,
                                 child: TextFormField(
-                                  initialValue: _con.nohp,
+                                  controller: phoneController,
+                                  style: TextStyle(
+                                    fontSize: 14.0, 
+                                  ),
                                   keyboardType: TextInputType.number,
-                                  style: TextStyle(fontSize: 14),
+                                  decoration: InputDecoration(
+                                    fillColor: bodylight,
+                                    filled: true,
+                                    contentPadding: EdgeInsets.fromLTRB(14, 0, 14, 0),
+                                    focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.5))),
+                                    enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        Icons.close,
+                                        color: blacktext,
+                                      ),
+                                      onPressed: () {
+                                        phoneController.clear();
+                                      }
+                                    ),
+                                  ),
                                   onChanged:(value){
                                     if(value.length > 3){
                                       setState(() {
@@ -111,30 +126,21 @@ class _PulsaPageState extends StateMVC<PulsaPage> with SingleTickerProviderState
                                       });
                                     }
                                   },
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.symmetric(vertical: 0),
-                                  ),
-                                )
-                              ),
-                              Offstage(
-                                child: GestureDetector(
-                                  onTap: (){
-                                    setState(() {
-                                      _con.nohp ='';
-                                      _con.operator ='';
-                                      _con.nohpField.clear();
-                                    });
-                                  },
-                                  child: Container(
-                                      width: 10,
-                                      height: 10,
-                                      child: Icon(Icons.cancel,color: Colors.grey,size: 17,),
-                                  ),
                                 ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: IconButton(
+                                onPressed: (){
+
+                                }, 
+                                icon: Icon(
+                                  Icons.contacts_rounded,
+                                )
                               )
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -151,6 +157,10 @@ class _PulsaPageState extends StateMVC<PulsaPage> with SingleTickerProviderState
                     itemBuilder: (context, index) {
                       return PulsaDataItem(
                         data: _con.pulsaDataList.elementAt(index),
+                        ontap: (){
+                          // _con.pulsaDataList.elementAt(index).nominal
+                          paymentMethod(_con.pulsaDataList.elementAt(index).harga, _con.pulsaDataList.elementAt(index).code,_con.pulsaDataList.elementAt(index).nama);
+                        },
                       );
                     },
                   ),
@@ -160,6 +170,22 @@ class _PulsaPageState extends StateMVC<PulsaPage> with SingleTickerProviderState
         ),
       ),
     );
+  }
+
+  void paymentMethod(harga, code, service){
+    Map parameter = {
+      'nominal' : harga,
+      'slug' : 'ppob',
+      'service' : service,
+      'phone' : phoneController.text,
+      'code' : code,
+    };
+    if(widget.routeArgument.id == 'pulsa'){
+      parameter["title"] = "PEMBELIAN PULSA";
+    }else if(widget.routeArgument.id == 'data'){
+      parameter["title"] = "PEMBELIAN DATA";
+    }
+    Navigator.of(context).pushNamed('/PaymentMethod', arguments: RouteArgument(param: parameter));
   }
 }
 

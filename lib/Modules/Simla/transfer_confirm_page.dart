@@ -1,4 +1,3 @@
-import 'package:bumaba/Modules/Simla/components/simlaPin.dart';
 import 'package:bumaba/Modules/Simla/simla_controller.dart';
 import 'package:bumaba/route_argument.dart';
 import 'package:flutter/material.dart';
@@ -107,25 +106,6 @@ class _SimlaTransferConfirmPageState extends StateMVC<SimlaTransferConfirmPage> 
                       ),
                       child: TextButton(
                         onPressed: (){
-                          var bottomSheetController = showModalBottomSheet(
-                            context: context, builder: (BuildContext context){
-                              return SimlaPinBottomSheet(
-                                onComplete : (value) {
-                                  setState(() { 
-                                    _con.simla.user.securityCode = value;
-                                  });
-                                  _con.confirmTransfer();
-                                },
-                              );
-                            },
-                            isDismissible: false,
-                            enableDrag: false,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-                            ),
-                            isScrollControlled: false,
-                            backgroundColor: Colors.transparent
-                          );
                         },
                         style: ButtonStyle(
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap,

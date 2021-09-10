@@ -23,18 +23,10 @@ class BankListComponent extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       child: Material(
         shadowColor: Colors.grey[50],
-        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
         elevation: 1.0,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            // borderRadius: new BorderRadius.all(Radius.circular(6)),
-            // border: Border(
-            //   left: BorderSide(
-            //     color: mainColor,
-            //     width: 3.0,
-            //   ),
-            // ),
           ),
           child: Material(
             type: MaterialType.transparency,

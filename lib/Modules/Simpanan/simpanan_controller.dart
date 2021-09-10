@@ -13,7 +13,6 @@ class SimpananController extends ControllerMVC {
   List<Simpanan> simpanan = <Simpanan>[];
   Simpanan detailSimpanan;
   List<Transaksi> transaksi = <Transaksi>[];
-  String _slug;
   PagingController<int, Transaksi> pagingController = PagingController(firstPageKey: 1);
   static const _pageSize = 15;
   

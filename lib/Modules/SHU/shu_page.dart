@@ -13,12 +13,6 @@ class SHUPage extends StatefulWidget {
 }
 
 class _SHUPageState extends StateMVC<SHUPage> {
-  // HomeController _con;
-
-  // _HomePageState() : super(HomeController()) {
-  //   _con = controller;                                                                                                                                          
-  // }
-  // @override
   void initState() {
     super.initState();
   }

@@ -32,7 +32,8 @@ Future<int> getSimlaSaldo() async {
     if (response.statusCode == 200) {
      currentSaldo.value = json.decode(response.body)['data'];
      setSaldoSimla(json.decode(response.body)['data']);
-      currentSaldo.notifyListeners();
+      // ignore: invalid_use_of_protected_member
+      // currentSaldo.notifyListeners();
     } else {
       throw new Exception(json.decode(response.body)['message']);
     }
@@ -50,7 +51,7 @@ Future<int> getCurrentSaldo() async {
     // ignore: await_only_futures
     currentSaldo.value = await prefs.get('current_saldo');
   }
-  currentSaldo.notifyListeners();
+  // currentSaldo.notifyListeners();
   return currentSaldo.value;
 }
 

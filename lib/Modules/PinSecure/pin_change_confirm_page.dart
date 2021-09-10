@@ -9,6 +9,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../route_argument.dart';
 
 
+// ignore: must_be_immutable
 class PinChangeConfirmPage extends StatefulWidget {
   final GlobalKey<ScaffoldState> parentScaffoldKey;
   RouteArgument routeArgument;

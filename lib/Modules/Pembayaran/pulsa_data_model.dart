@@ -1,4 +1,4 @@
-class PulsaData{
+class PPOB{
   String id;
   String code;
   String operator;
@@ -7,11 +7,12 @@ class PulsaData{
   String nama;
   String expired;
   int harga;
+  String phone;
   String details;
 
-  PulsaData();
+  PPOB();
 
-  PulsaData.fromJSON(Map<String, dynamic> jsonMap) {
+  PPOB.fromJSON(Map<String, dynamic> jsonMap) {
     try {
       id = jsonMap['id'] != null ? jsonMap['id'].toString() : '';
       code = jsonMap['code'] != null ? jsonMap['code'].toString() : '';

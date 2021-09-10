@@ -61,7 +61,6 @@ class _SimpananPageState extends StateMVC<SimpananPage> {
             child: Container(
               height: MediaQuery.of(context).size.height,
               padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-              // color: Colors.white,
               child: RefreshIndicator(
                 onRefresh: _con.refreshList,
                 child: _con.simpanan.isEmpty ? 

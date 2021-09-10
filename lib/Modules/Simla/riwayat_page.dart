@@ -9,13 +9,6 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import '../../route_argument.dart';
 import '../Main/main_app_bar.dart';
 import 'simla_controller.dart';
-// import '../elements/BlockButtonWidget.dart';
-// import '../repository/user_repository.dart' as userRepo;
-// import 'Repository/SettingRepository.dart' as settingsRepo;
-// import 'elements/HomeSlider/HomeSliderWidget.dart';
-// import 'elements/Category/CaregoriesCarouselWidget.dart';
-
-// import 'elements/Toko/TokoListWidget.dart';
 
 class RiwayatSimlaPage extends StatefulWidget {
   final GlobalKey<ScaffoldState> parentScaffoldKey;

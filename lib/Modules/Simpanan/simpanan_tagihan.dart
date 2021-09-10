@@ -187,7 +187,14 @@ class _TagihanSimpananDetailPageState extends StateMVC<TagihanSimpananDetailPage
               height: 40,
               child: ElevatedButton(
                 onPressed: (_con.tagihanSelected.length <= 0) ? null : (){
-                  Navigator.of(context).pushNamed('/PaymentMethod', arguments: RouteArgument(param : { 'nominal' : _con.totalBayar, 'slug' : 'deposit', 'service' : 'wajib', 'tagihan_id' : _con.tagihanSelected }));
+                  Map parameter = {
+                    'nominal' : _con.totalBayar,
+                    'slug' : 'deposit', 
+                    'service' : 'wajib', 
+                    'tagihan_id' : _con.tagihanSelected,
+                    'title' : 'Setor Simpanan Wajib'
+                  };
+                  Navigator.of(context).pushNamed('/PaymentMethod', arguments: RouteArgument(param : parameter));
                 },
                 child: Text('Lanjut', style: TextStyle(
                   color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16),
@@ -199,7 +206,7 @@ class _TagihanSimpananDetailPageState extends StateMVC<TagihanSimpananDetailPage
                         return Color(0xFF0d9437);
                       else if (states.contains(MaterialState.disabled))
                         return Color(0xFF0c5824);
-                      return Color(0xFF0d9437); // Use the component's default.
+                      return Color(0xFF0d9437);
                     },
                   ),
                 ),

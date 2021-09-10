@@ -1,9 +1,9 @@
 import 'package:bumaba/Config/color.dart';
-import 'package:bumaba/Modules/Main/main_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+// ignore: must_be_immutable
 class SimlaPinBottomSheet extends StatelessWidget {
   ValueSetter<String> onComplete = (value) {}; 
 
