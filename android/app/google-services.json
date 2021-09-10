@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "201011940598",
+    "firebase_url": "https://bumaba-b27d8.firebaseio.com",
+    "project_id": "bumaba-b27d8",
+    "storage_bucket": "bumaba-b27d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201011940598:android:b3bff0c6ce537dcf5f70d7",
+        "android_client_info": {
+          "package_name": "com.bumaba.ikop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201011940598-ecdo7l4k6j7cqfhm5n4r117c587n3gs5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsPovbzmQN0atAJxNA_g2Q63ighx8RxoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201011940598-ecdo7l4k6j7cqfhm5n4r117c587n3gs5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
