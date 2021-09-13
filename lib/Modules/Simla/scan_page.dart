@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:bumaba/Config/color.dart';
-import 'package:bumaba/Modules/Simla/simla_controller.dart';
+import 'package:bumaba/controllers/simla_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';

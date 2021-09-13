@@ -1,4 +1,4 @@
-import 'package:bumaba/Modules/Transaksi/transaksi_model.dart';
+import 'package:bumaba/models/transaksi_model.dart';
 
 class Tagihan {
   String id;

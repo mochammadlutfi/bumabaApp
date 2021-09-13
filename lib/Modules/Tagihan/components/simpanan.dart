@@ -1,7 +1,5 @@
 
 import 'package:bumaba/Config/color.dart';
-// ignore: unused_import
-import 'package:bumaba/Modules/Simpanan/simpanan_controller.dart';
 import 'package:bumaba/Modules/Tagihan/tagihan_controller.dart';
 import 'package:bumaba/Modules/Tagihan/tagihan_model.dart';
 import 'package:bumaba/components/loading/loading_circular_widget.dart';

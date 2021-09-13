@@ -44,7 +44,7 @@ dependencies:
   flutter_icons: ^1.1.0
   flutter_svg: ^0.22.0
   carousel_slider: ^4.0.0
-  pin_code_fields: ^7.2.0
+  pin_code_fields: ^7.3.0
   global_configuration: ^0.1.2
   qr_code_scanner: ^0.4.0
   flutter_launcher_icons: ^0.9.0
@@ -56,6 +56,8 @@ dependencies:
   shimmer: ^2.0.0
   infinite_scroll_pagination: ^3.1.0
   flutter_contacts: ^1.1.0+4
+  numeric_keyboard: ^1.1.0
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:

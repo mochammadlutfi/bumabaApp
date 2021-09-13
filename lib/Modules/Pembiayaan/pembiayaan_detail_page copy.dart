@@ -1,5 +1,5 @@
 
-import 'package:bumaba/Modules/Pembiayaan/pembiayaan_model.dart';
+import 'package:bumaba/models/pembiayaan_model.dart';
 import 'package:bumaba/components/loading/loading_circular_widget.dart';
 import 'package:bumaba/route_argument.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import '../../../Config/color.dart';
 
 
-import 'pembiayaan_controller.dart';
+import '../../controllers/pembiayaan_controller.dart';
 import '../Main/main_app_bar.dart';
 
 // ignore: must_be_immutable

@@ -6,7 +6,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../route_argument.dart';
-import 'pin_controller.dart';
+import '../../controllers/pin_controller.dart';
 import '../../Config/app.dart' as config;
 
 // ignore: must_be_immutable

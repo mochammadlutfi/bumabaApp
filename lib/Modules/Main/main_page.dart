@@ -1,5 +1,5 @@
 import 'package:bumaba/Config/color.dart';
-import 'package:bumaba/Modules/Home/home_page.dart';
+import 'package:bumaba/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:ovo_ui/Screen/Home/HomePage.dart';

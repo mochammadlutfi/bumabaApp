@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 
 import '../../Core/helper.dart';
 
-import '../User/user_model.dart';
-import '../User/user_repository.dart' as userRepo;
+import '../../models/user_model.dart';
+import '../../repository/user_repository.dart' as userRepo;
 import 'tagihan_model.dart';
 
 Future<Stream<Tagihan>> listTagihanSimpanan() async {

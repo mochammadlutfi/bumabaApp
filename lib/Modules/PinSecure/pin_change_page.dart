@@ -1,6 +1,6 @@
 import 'package:bumaba/Config/color.dart';
 import 'package:bumaba/Modules/Main/main_app_bar.dart';
-import 'package:bumaba/Modules/PinSecure/pin_controller.dart';
+import 'package:bumaba/controllers/pin_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 

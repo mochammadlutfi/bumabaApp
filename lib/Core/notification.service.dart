@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:bumaba/Config/app.dart';
-import 'package:bumaba/Modules/Notifikasi/notification_model.dart';
+import 'package:bumaba/models/notification_model.dart';
 
 import 'local_storage.dart';
 

@@ -1,47 +1,46 @@
 
-import 'package:bumaba/Modules/Pembayaran/pulsa_page.dart';
+import 'package:bumaba/pages/ppob/pulsa_page.dart';
 import 'package:bumaba/Modules/PinSecure/pin_change_page.dart';
 import 'package:bumaba/Modules/PinSecure/pin_setup_page.dart';
-import 'package:bumaba/Modules/SHU/shu_page.dart';
-import 'package:bumaba/Modules/Simpanan/simpanan_detail_page.dart';
-import 'package:bumaba/Modules/Tagihan/tagihan_page.dart';
-import 'package:bumaba/Modules/User/account_page.dart';
+import 'package:bumaba/pages/shu_page.dart';
+import 'package:bumaba/pages/simpanan/simpanan_detail_page.dart';
+import 'package:bumaba/pages/tagihan_page.dart';
+import 'package:bumaba/pages/account_page.dart';
 import 'package:flutter/material.dart';
 
 // ignore: unused_import
-import 'Modules/Notifikasi/notification_page.dart';
-import 'Modules/Payment/payment_confirm.dart';
-import 'Modules/Payment/payment_method.dart';
-import 'Modules/Pembiayaan/pembiayaan_bayar.dart';
-import 'Modules/Pembiayaan/pembiayaan_detail_page.dart';
-import 'Modules/Pembiayaan/pembiayaan_tunai_detail_page.dart';
-import 'Modules/Pembiayaan/pembiayaan_tunai_page.dart';
-import 'Modules/PinSecure/pin_access_page.dart';
+import 'pages/notification_page.dart';
+import 'pages/payment/payment_confirm.dart';
+import 'pages/payment/payment_method.dart';
+import 'pages/pembiayaan/pembiayaan_bayar.dart';
+import 'pages/pembiayaan/pembiayaan_detail_page.dart';
+import 'pages/pembiayaan/pembiayaan_tunai_detail_page.dart';
+import 'pages/pembiayaan/pembiayaan_tunai_page.dart';
+import 'pages/pin_security/pin_access_page.dart';
 import 'Modules/PinSecure/pin_change_confirm_page.dart';
 import 'Modules/PinSecure/pin_change_setup_page.dart';
 import 'Modules/PinSecure/pin_confirm_page.dart';
-import 'Modules/Services/services_page.dart';
-import 'Modules/Simla/simla_pin.dart';
-import 'Modules/Simla/transfer_confirm_page.dart';
-import 'Modules/Simla/transfer_info.dart';
-import 'Modules/Simpanan/simpanan_riwayat_page.dart';
-import 'Modules/Simpanan/simpanan_tagihan.dart';
-import 'Modules/Transaksi/transaksi_detail_page.dart';
-import 'Modules/Transaksi/transaksi_page.dart';
+import 'pages/services_page.dart';
+import 'pages/simla/transfer_confirm_page.dart';
+import 'pages/simla/transfer_info.dart';
+import 'pages/simpanan/simpanan_riwayat_page.dart';
+import 'pages/simpanan/simpanan_tagihan.dart';
+import 'pages/transaksi_detail_page.dart';
+import 'pages/transaksi/transaksi_page.dart';
 import 'route_argument.dart';
 
-import 'Modules/Splash/splash_page.dart';
-import 'Modules/Simla/top_up_page.dart';
-import 'Modules/Simla/transfer_page.dart';
-import 'Modules/Simla/riwayat_page.dart';
+import 'controllers/splash_page.dart';
+import 'pages/simla/top_up_page.dart';
+import 'pages/simla/transfer_page.dart';
+import 'pages/simla/riwayat_page.dart';
 import 'Modules/Simla/scan_page.dart';
 
 
-import 'Modules/User/login_page.dart';
+import 'pages/auth/login_page.dart';
 
-import 'Modules/Simpanan/simpanan_page.dart';
-import 'Modules/Pembiayaan/pembiayaan_page.dart';
-import 'Core/pages.dart';
+import 'pages/simpanan/simpanan_list_page.dart';
+import 'pages/pembiayaan/pembiayaan_list_page.dart';
+import 'pages/pages.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -89,8 +88,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => RiwayatSimlaPage());
       case '/SimlaScan':
         return MaterialPageRoute(builder: (_) => SimlaScanPage());
-      case '/SimlaPin':
-        return MaterialPageRoute(builder: (_) => SimlaPinPage(routeArgument: args as RouteArgument));
 
 
         
@@ -122,7 +119,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SimpananRiwayatPage(routeArgument: args as RouteArgument));
         
       case '/Pembiayaan':
-        return MaterialPageRoute(builder: (_) => PembiayaanPage());
+        return MaterialPageRoute(builder: (_) => PembiayaanListPage());
       case '/PembiayaanProgram':
         return MaterialPageRoute(builder: (_) => PembiayaanDetailPage(routeArgument: args as RouteArgument));
       case '/PembiayaanTunai':

@@ -58,7 +58,7 @@ class Helper {
         top: 0,
         left: 0,
         child: Material(
-          color: Theme.of(context).primaryColor.withOpacity(0.85),
+          color: Colors.white.withOpacity(0.65),
           child: CircularLoadingWidget(height: 200),
         ),
       );

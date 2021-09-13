@@ -2,17 +2,17 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bumaba/Core/helper.dart';
-import 'package:bumaba/Modules/Simla/simla_model.dart';
+import 'package:bumaba/models/simla_model.dart';
 // ignore: unused_import
-import 'package:bumaba/Modules/Transaksi/transaksi_model.dart';
+import 'package:bumaba/models/transaksi_model.dart';
 import 'package:flutter/material.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-import '../User/user_model.dart';
-import '../User/user_repository.dart' as userRepo;
+import '../../models/user_model.dart';
+import '../../repository/user_repository.dart' as userRepo;
 
 
 ValueNotifier<int> currentSaldo = new ValueNotifier(0);

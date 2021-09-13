@@ -7,13 +7,14 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 class SimlaPinBottomSheet extends StatelessWidget {
   ValueSetter<String> onComplete = (value) {}; 
 
+  TextEditingController pinController = new TextEditingController();
+
   SimlaPinBottomSheet({Key key, this.onComplete}) : super(key: key);
+
+  
 
   @override
   Widget build(BuildContext context) {
-    // return SafeArea(
-        // child: ,
-    //   );
 
     return AnimatedPadding(
       padding: MediaQuery.of(context).viewInsets,
@@ -24,9 +25,8 @@ class SimlaPinBottomSheet extends StatelessWidget {
         child: Wrap(
           children: <Widget>[
             Container(
-              height: 240,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+              decoration: BoxDecoration(color: Colors.white),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -53,14 +53,13 @@ class SimlaPinBottomSheet extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-
                           PinCodeTextField(
+                            controller : pinController,
                             appContext: context,
-                            autoFocus: true,
+                            readOnly: true,
                             enablePinAutofill : false,
                             length: 6,
                             obscureText: true,
-                            obscuringCharacter: '*',
                             animationType: AnimationType.fade,
                             pinTheme: PinTheme(
                               inactiveColor : mainColor,
@@ -73,8 +72,6 @@ class SimlaPinBottomSheet extends StatelessWidget {
                               fieldHeight: 50,
                               fieldWidth: 40,
                             ),
-                            cursorColor: Colors.black,
-                            keyboardType: TextInputType.number,
                             boxShadows: [
                               BoxShadow(
                                 offset: Offset(0, 1),

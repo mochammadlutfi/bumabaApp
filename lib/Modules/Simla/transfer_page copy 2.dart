@@ -1,5 +1,5 @@
-import 'package:bumaba/Modules/Simla/simla_controller.dart';
-import 'package:bumaba/Modules/User/contact_model.dart';
+import 'package:bumaba/controllers/simla_controller.dart';
+import 'package:bumaba/models/contact_model.dart';
 import 'package:bumaba/route_argument.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
