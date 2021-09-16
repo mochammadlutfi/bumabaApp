@@ -7,7 +7,6 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../controllers/pin_controller.dart';
-import '../../Config/app.dart' as config;
 
 class PinAccessPage extends StatefulWidget {
   @override
