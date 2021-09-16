@@ -1,5 +1,5 @@
 
-import 'package:bumaba/Config/color.dart';
+import 'package:bumaba/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
@@ -48,12 +48,18 @@ class _TransaksiPageState extends StateMVC<TransaksiPage> with SingleTickerProvi
     return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          elevation : 1,
           automaticallyImplyLeading: false,
-          title: Text("Catatan Transaksi", style: TextStyle(color: mainColor)),
+          backgroundColor: AppTheme.customTheme.bgLayer1,
+          centerTitle: true,
+          title: Text("Catatan Transaksi",
+            style: AppTheme.getTextStyle(
+              Theme.of(context).textTheme.headline6,
+              fontWeight: 700
+            )
+          ),
           bottom: TabBar(
             onTap: (index) {
-              print(index);
               _setTabSelected(index);
             },
             indicatorWeight: 3.0,

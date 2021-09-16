@@ -1,5 +1,5 @@
 import 'package:bumaba/components/home/bg_header.dart';
-import 'package:bumaba/components/home/info_carousel.dart';
+import 'package:bumaba/components/home/home_slider.dart';
 import 'package:bumaba/components/home/service_menu.dart';
 import 'package:bumaba/components/home/simla_service.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +26,7 @@ class _HomePageState extends StateMVC<HomePage> {
   @override
   void initState() {
     _con.listenSimlaSaldo();
+    _con.listenForSlides();
     super.initState();
   }
   
@@ -54,7 +55,7 @@ class _HomePageState extends StateMVC<HomePage> {
                       SizedBox(height: 4),
                       SimlaService(),
                       ServiceMenu(),
-                      InfoPromoCarousel()
+                      HomeSliderWidget(slides: _con.slides)
                     ],
                   )
                 ],

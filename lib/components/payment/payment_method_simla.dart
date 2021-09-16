@@ -1,7 +1,7 @@
 
 
 import 'package:bumaba/Config/color.dart';
-import 'package:bumaba/Modules/Simla/simla_repository.dart';
+import 'package:bumaba/repository/simla_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

@@ -1,6 +1,7 @@
 
 import 'package:bumaba/Config/color.dart';
 import 'package:bumaba/components/ppob/pulsa_comp.dart';
+import 'package:bumaba/config/app_theme.dart';
 import 'package:bumaba/controllers/pulsa_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
@@ -40,16 +41,26 @@ class _PulsaPageState extends StateMVC<PulsaPage> with SingleTickerProviderState
     final size = MediaQuery.of(context).size;
     return new Scaffold(
       appBar: AppBar(
-        backgroundColor: bgLight,
-        leading: BackButton(
-          color: mainColor
-        ), 
-        titleSpacing: 0,
-        title: Text(_con.type.toUpperCase(), style: TextStyle(color: mainColor)),
+        elevation: 1,
+        backgroundColor: AppTheme.customTheme.bgLayer1,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.chevron_left,
+          ),
+        ),
+        centerTitle: true,
+        title: Text(widget.routeArgument.id == 'pulsa' ? 'PULSA' : 'DATA',
+            style: AppTheme.getTextStyle(
+                Theme.of(context).textTheme.headline6,
+                fontWeight: 800)
+        ),
         bottom: PreferredSize(
           child: Container(
             alignment: Alignment.center,
-            color: bgLight,
+            color: AppTheme.customTheme.bgLayer1,
             padding: EdgeInsets.symmetric(vertical: 15),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,

@@ -33,20 +33,15 @@ class _NotificationPageState extends StateMVC<NotificationPage> with SingleTicke
     return new Scaffold(
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: AppTheme.customTheme.bgLayer1,
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.chevron_left,
-          ),
-        ),
+        centerTitle: true,
         title: Text("Notifikasi",
-            style: AppTheme.getTextStyle(
-                Theme.of(context).textTheme.headline6,
-                fontWeight: 700)
-          ),
+          style: AppTheme.getTextStyle(
+            Theme.of(context).textTheme.headline6,
+            fontWeight: 700
+          )
+        ),
       ),
       backgroundColor : Theme.of(context).scaffoldBackgroundColor,
       body: Container(

@@ -107,7 +107,9 @@ class Payment {
     map["code"] = ppob.code;
     map["phone"] = ppob.phone;
     map["operator"] = ppob.operator;
-    map["security_code"] = user.securityCode;
+    if(method == 'simla'){
+      map["security_code"] = user.securityCode;
+    }
     return map;
   }
 

@@ -60,11 +60,11 @@ Future<Payment> pay(Payment payment) async {
     },
     body: json.encode(body),
   );
+  print(body);
   if (response.statusCode == 200) {
     current_topup.value = Payment.fromJSON(json.decode(response.body)['data']);
     return current_topup.value;
   } else {
-   
     throw new Exception(response.body);
   }
 }

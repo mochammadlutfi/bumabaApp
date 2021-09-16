@@ -1,5 +1,5 @@
 import 'package:bumaba/Config/color.dart';
-import 'package:bumaba/Modules/Main/main_app_bar.dart';
+import 'package:bumaba/config/app_theme.dart';
 import 'package:bumaba/controllers/pin_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
@@ -31,12 +31,29 @@ class _PinChangePageState extends StateMVC<PinChangePage> with SingleTickerProvi
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: AppTheme.customTheme.bgLayer1,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.chevron_left,
+          ),
+        ),
+        centerTitle: true,
+        title: Text("Ubah Security PIN",
+            style: AppTheme.getTextStyle(
+                Theme.of(context).textTheme.headline6,
+                fontWeight: 800)
+        ),
+      ),
       key: _con.scaffoldKey,
-      appBar: mainappbar("Ubah Security Code"),
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Theme.of(context).primaryColor),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,

@@ -194,7 +194,7 @@ class AppTheme {
       labelColor: Color(0xFF0d9437),
       indicatorSize: TabBarIndicatorSize.tab,
       indicator: UnderlineTabIndicator(
-        borderSide: BorderSide(color: Color(0xFF0d9437)),
+        borderSide: BorderSide(color: Color(0xFF0d9437), width: 4),
       ),
     ),
     sliderTheme: SliderThemeData(

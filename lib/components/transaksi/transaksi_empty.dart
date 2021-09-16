@@ -17,11 +17,11 @@ class TransaksiEmpty extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset("assets/img/notification.svg",
-            height: 100,
+          SvgPicture.asset("assets/img/transaksi_empty.svg",
+            height: 200,
           ),Padding(
               padding: EdgeInsets.fromLTRB(0, 20, 0, 10),
-              child: Text("Semua Transaksi Kamu Selesai Di Proses",
+              child: Text("Transaksi Tidak Ditemukan!",
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
             ),
         ],

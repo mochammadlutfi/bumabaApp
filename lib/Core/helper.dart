@@ -16,6 +16,8 @@ import 'package:bumaba/components/loading/loading_circular_widget.dart';
 class Helper {
   BuildContext context;
   DateTime currentBackPressTime;
+  
+  static final GlobalKey<NavigatorState> navigatorKey = new GlobalKey<NavigatorState>();
 
   Helper.of(BuildContext _context) {
     this.context = _context;

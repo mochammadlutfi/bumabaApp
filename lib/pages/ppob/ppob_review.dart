@@ -1,50 +1,42 @@
+import 'package:bumaba/components/loading/loading_circular_widget.dart';
+import 'package:bumaba/components/payment/bank_list.dart';
+import 'package:bumaba/controllers/payment_controller.dart';
+import 'package:bumaba/models/user_model.dart';
 import 'package:bumaba/repository/simla_repository.dart';
 import 'package:bumaba/components/pin/pin_bottom_sheet.dart';
 import 'package:bumaba/config/app_theme.dart';
-import 'package:bumaba/controllers/payment_controller.dart';
-import 'package:bumaba/components/loading/loading_circular_widget.dart';
-import 'package:bumaba/models/ppob_model.dart';
-import 'package:bumaba/models/user_model.dart';
 import 'package:bumaba/route_argument.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import '../../../Config/color.dart';
 
-import '../../components/payment/bank_list.dart';
 import '../../components/payment/payment_method_simla.dart';
 
-// ignore: must_be_immutable
-class PaymentMethodPage extends StatefulWidget {
+class PPOBReviewPage extends StatefulWidget {
   final RouteArgument routeArgument;
 
-  PaymentMethodPage({Key key, this.routeArgument}) : super(key: key);
+  PPOBReviewPage({Key key, this.routeArgument}) : super(key: key);
 
   @override
-  _PaymentMethodPageState createState() {
-    return _PaymentMethodPageState();
+  _PPOBReviewPageState createState() {
+    return _PPOBReviewPageState();
   }
 }
 
-class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
+class _PPOBReviewPageState extends StateMVC<PPOBReviewPage> {
   PaymentController _con;
   Map param = new Map();
   Map result = new Map();
 
-  _PaymentMethodPageState() : super(PaymentController()) {
+  _PPOBReviewPageState() : super(PaymentController()) {
     _con = controller;
   }
 
   @override
   void initState() {
-    param = widget.routeArgument.param;
-    setState(() { 
-      _con.payment.jumlah = param["nominal"];
-      _con.payment.slug = param["slug"];
-      _con.payment.service = param["service"];
-      param["tagihan_id"] == null ?  _con.payment.tagihanId = [] : _con.payment.tagihanId = param["tagihan_id"];
+    setState(() {
+     _con.payment = widget.routeArgument.param;
     });
-
     _con.listenBankList();
     super.initState();
   }
@@ -72,8 +64,7 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                 fontWeight: 700)),
       ),
       backgroundColor: bodylight,
-      body: _con.bankList.isEmpty ? CircularLoadingWidget(height: size.height / 2) : 
-        RefreshIndicator(
+      body: _con.bankList.isEmpty ? CircularLoadingWidget(height: size.height / 2) : RefreshIndicator(
           onRefresh: _con.refreshList,
           child: Column(
             children: [
@@ -85,23 +76,6 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                     children: [
                       Container(
                         width: size.width,
-                        margin: EdgeInsets.only(bottom: 1),
-                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                        decoration: BoxDecoration(
-                          color : Colors.white,
-                          borderRadius: new BorderRadius.only(
-                            topLeft: new Radius.circular(6),
-                            topRight: new Radius.circular(6)
-                          )
-                        ),
-                        child: Text(
-                          param["title"],
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-              
-                      Container(
-                        width: size.width,
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                         decoration: BoxDecoration(
                           color : Colors.white,
@@ -110,58 +84,15 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                             bottomRight: new Radius.circular(4)
                           )
                         ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(bottom: 4),
-                                    child: Text(
-                                      NumberFormat.currency(locale: 'id', symbol: 'Rp', decimalDigits : 0).format(widget.routeArgument.param["nominal"]).toString(),
-                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                  param["slug"] != 'ppob' ? SizedBox.shrink() :
-                                  Padding(
-                                    padding: EdgeInsets.only(bottom: 4),
-                                    child: Text(
-                                      param["phone"],
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                  ),
-
-                                  Padding(
-                                    padding: EdgeInsets.only(bottom: 4),
-                                    child: Text(
-                                      param["service"],
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            
-                          ],
-                        )
                       ),
                     ],
                   ),
                 ),
                 
-                if(param["slug"] != 'simla')
                 PaymentMethodSimlaWidget(
                   ontap : (){
                     if(currentSaldo.value > _con.payment.jumlah){
                       setState(() {
-                          if(param["slug"] == 'ppob'){
-                            _con.payment.ppob = new PPOB();
-                            _con.payment.ppob.operator = param["operator"];
-                            _con.payment.ppob.type = param["type"];
-                            _con.payment.ppob.code = param["code"];
-                            _con.payment.ppob.phone = param["phone"];
-                          }
                           _con.payment.method = "simla";
                           _con.payment.user = new User();
                       });
@@ -174,7 +105,6 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                               setState(() { 
                                 _con.payment.user.securityCode = value;
                               });
-                              // print(_con.payment.toPayPPOB());
                               _con.payRequest();
                             }
                           );
@@ -183,10 +113,8 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                         backgroundColor: Colors.transparent,
                       );
                     }
-
                   }
                 ),
-                if(param["slug"] != 'ppob')
                 Container(
                   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                   width: size.width,
@@ -204,15 +132,14 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                       Row(
                         children: [
                           Text(
-                            "Pilih Metode Pembayaran",
-                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            "BAYAR VIA BANK TRANSFER",
+                            style: TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ],
                   ),
                 ),
-                if(param["slug"] != 'ppob')
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -228,7 +155,7 @@ class _PaymentMethodPageState extends StateMVC<PaymentMethodPage> {
                             setState(() {
                               _con.payment.bankId = _con.bankList.elementAt(index).id;
                             });
-                              _con.payRequest();
+                              // _con.payRequest();
                           },
                         );
                       },

@@ -7,22 +7,13 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import 'app.service.dart';
 import 'notification_model.dart';
-// import 'package:fuodz/constants/app_routes.dart';
-// import 'package:fuodz/constants/app_strings.dart';
-// import 'package:fuodz/models/notification.dart';
-// import 'package:fuodz/models/order.dart';
-// import 'package:fuodz/services/app.service.dart';
-// import 'package:fuodz/services/notification.service.dart';
-// import 'package:velocity_x/velocity_x.dart';
-// import 'package:fuodz/translations/order_details.i18n.dart';
 
 class FirebaseService {
   static NotificationModel notificationModel;
   static FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
   static dynamic notificationPayloadData;
   
-  static final GlobalKey<NavigatorState> navigatorKey =
-      new GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> navigatorKey = new GlobalKey<NavigatorState>();
 
   //
   static NotificationDetails platformChannelSpecifics;
@@ -40,8 +31,7 @@ class FirebaseService {
     //handling the notification process
     // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
     // If you have skipped STEP 3 then change app_icon to @mipmap/ic_launcher
-    var initializationSettingsAndroid =
-        new AndroidInitializationSettings('@mipmap/notification_icon');
+    var initializationSettingsAndroid = new AndroidInitializationSettings('@mipmap/notification_icon');
     var initializationSettingsIOS = new IOSInitializationSettings();
     var initializationSettings = new InitializationSettings(
       android: initializationSettingsAndroid,
@@ -55,15 +45,13 @@ class FirebaseService {
     );
 
     await flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            IOSFlutterLocalNotificationsPlugin>()
+        .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
         ?.requestPermissions(
           alert: true,
           badge: true,
           sound: true,
         );
 
-    //
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
       "${AppStrings.notificationChannel}",
       "${AppStrings.appName}",
@@ -148,10 +136,8 @@ class FirebaseService {
     print("Payload ==> $notificationPayloadData");
     try {
       //
-      final isChat = notificationPayloadData != null &&
-          notificationPayloadData["is_chat"] != null;
-      final isOrder = notificationPayloadData != null &&
-          notificationPayloadData["is_order"] != null;
+      final isChat = notificationPayloadData != null && notificationPayloadData["is_chat"] != null;
+      final isOrder = notificationPayloadData != null && notificationPayloadData["is_order"] != null;
       // //
       if (isChat) {
       //   //

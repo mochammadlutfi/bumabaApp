@@ -9,7 +9,7 @@ import 'package:mvc_pattern/mvc_pattern.dart';
 import 'dart:async';
 
 import '../route_argument.dart';
-import '../Modules/Simla/simla_repository.dart' as repository;
+import '../repository/simla_repository.dart' as repository;
 
 
 class SimlaController extends ControllerMVC {

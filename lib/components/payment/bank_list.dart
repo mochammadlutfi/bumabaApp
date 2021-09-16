@@ -10,7 +10,6 @@ class BankListComponent extends StatelessWidget {
   final Bank bank;
 
   VoidCallback ontap;
-  // CallBack onpress;
   BankListComponent({
     Key key,
     this.bank,

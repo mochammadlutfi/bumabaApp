@@ -11,8 +11,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-import '../../models/user_model.dart';
-import '../../repository/user_repository.dart' as userRepo;
+import '../models/user_model.dart';
+import 'user_repository.dart' as userRepo;
 
 
 ValueNotifier<int> currentSaldo = new ValueNotifier(0);

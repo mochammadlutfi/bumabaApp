@@ -61,10 +61,13 @@ renderKeyboard() {
     return WillPopScope(
       onWillPop: Helper.of(context).onWillPop,
       child: Scaffold(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         key: _con.scaffoldKey,
         body: SafeArea(
           child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Container(
                 width: size.width,
@@ -95,8 +98,7 @@ renderKeyboard() {
                   horizontal: 0,
                 ),
                 padding: EdgeInsets.fromLTRB(20,0,20,20),
-                width: config.App(context).appWidth(100),
-                height: config.App(context).appHeight(40),
+                width: size.width,
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -139,17 +141,33 @@ renderKeyboard() {
 
                         },
                       ),
+                      if(_con.hasError)
+                      Container(
+                        alignment: Alignment.center,
+                        child : Text(
+                        _con.hasError ? "Security PIN Salah!" : "",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600),
+                        )
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        child : Text("Lupa Security PIN?",
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600
+                          ),
+                        )
+                      ),
                     ],
                   ),
               ),
 
-            Container(
-                child : Column(
-                  children : [
-                    ...renderKeyboard(),
-                  ]
-                )
-              ),
+           
+            ...renderKeyboard(),
           ],
         ),
         )

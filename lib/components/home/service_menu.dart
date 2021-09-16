@@ -28,11 +28,6 @@ class ServiceMenu extends StatelessWidget {
                 },
               ),
               ServiceMenuBTN(
-                svgpath: "assets/icons/transfer_simp_icon.svg",
-                text: "Transfer",
-                onpress: () {},
-              ),
-              ServiceMenuBTN(
                 svgpath: "assets/icons/pembiayaan_icon.svg",
                 text: "Pembiayaan",
                 onpress: () {
@@ -46,6 +41,13 @@ class ServiceMenu extends StatelessWidget {
                   Navigator.of(context).pushNamed('/SHU');
                 },
               ),
+              ServiceMenuBTN(
+                svgpath: "assets/icons/pulsa_icon.svg",
+                text: "Pulsa",
+                onpress: () {
+                  Navigator.of(context).pushNamed('/PulsaData', arguments: RouteArgument(id: 'pulsa'));
+                },
+              ),
             ],
           ),
           SizedBox(height: 23),
@@ -54,13 +56,6 @@ class ServiceMenu extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ServiceMenuBTN(
-                svgpath: "assets/icons/pulsa_icon.svg",
-                text: "Pulsa",
-                onpress: () {
-                  Navigator.of(context).pushNamed('/PulsaData', arguments: RouteArgument(id: 'pulsa'));
-                },
-              ),
-              ServiceMenuBTN(
                 svgpath: "assets/icons/paketdata_icon.svg",
                 text: "Paket Data",
                 onpress: () {
@@ -68,9 +63,16 @@ class ServiceMenu extends StatelessWidget {
                 },
               ),
               ServiceMenuBTN(
+                svgpath: "assets/icons/bpjs_icon.svg",
+                text: "BPJS",
+                onpress: () {},
+              ),
+              ServiceMenuBTN(
                 svgpath: "assets/icons/pln_icon.svg",
                 text: "PLN",
-                onpress: () {},
+                onpress: () {
+                  Navigator.of(context).pushNamed('/PLNPage');
+                },
               ),
               ServiceMenuBTN(
                 svgpath: "assets/icons/lainnya_icon.svg",

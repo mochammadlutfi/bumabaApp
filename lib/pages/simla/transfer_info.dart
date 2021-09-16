@@ -1,6 +1,6 @@
 import 'package:bumaba/config/app_theme.dart';
 import 'package:bumaba/controllers/simla_controller.dart';
-import 'package:bumaba/Modules/Simla/simla_repository.dart';
+import 'package:bumaba/repository/simla_repository.dart';
 import 'package:bumaba/route_argument.dart';
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';

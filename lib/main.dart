@@ -9,7 +9,7 @@ import 'Core/firebase.service.dart';
 import 'route_generator.dart';
 import 'Core/app_boot.dart' as setting;
 import 'repository/user_repository.dart' as userRepo;
-import 'Modules/Simla/simla_repository.dart' as simlaRepo;
+import 'repository/simla_repository.dart' as simlaRepo;
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = (Platform.isAndroid || Platform.isIOS) ? FlutterLocalNotificationsPlugin() : null;
 

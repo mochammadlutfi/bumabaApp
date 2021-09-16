@@ -31,9 +31,10 @@ class _KeyboardKeyWidgetState extends State<KeyboardKeyWidget> {
     );
   }
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return InkWell(
+      highlightColor: Colors.grey,
       onTap: (){
         widget.onTap(widget.value);
       },

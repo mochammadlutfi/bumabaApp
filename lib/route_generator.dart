@@ -1,6 +1,7 @@
 
+import 'package:bumaba/pages/ppob/pln_page.dart';
 import 'package:bumaba/pages/ppob/pulsa_page.dart';
-import 'package:bumaba/Modules/PinSecure/pin_change_page.dart';
+import 'package:bumaba/pages/pin_security/pin_change_page.dart';
 import 'package:bumaba/Modules/PinSecure/pin_setup_page.dart';
 import 'package:bumaba/pages/shu_page.dart';
 import 'package:bumaba/pages/simpanan/simpanan_detail_page.dart';
@@ -8,7 +9,6 @@ import 'package:bumaba/pages/tagihan_page.dart';
 import 'package:bumaba/pages/account_page.dart';
 import 'package:flutter/material.dart';
 
-// ignore: unused_import
 import 'pages/notification_page.dart';
 import 'pages/payment/payment_confirm.dart';
 import 'pages/payment/payment_method.dart';
@@ -20,6 +20,7 @@ import 'pages/pin_security/pin_access_page.dart';
 import 'Modules/PinSecure/pin_change_confirm_page.dart';
 import 'Modules/PinSecure/pin_change_setup_page.dart';
 import 'Modules/PinSecure/pin_confirm_page.dart';
+import 'pages/ppob/ppob_review.dart';
 import 'pages/services_page.dart';
 import 'pages/simla/transfer_confirm_page.dart';
 import 'pages/simla/transfer_info.dart';
@@ -135,7 +136,10 @@ class RouteGenerator {
         
       case '/PulsaData':
         return MaterialPageRoute(builder: (_) => PulsaPage(routeArgument: args as RouteArgument));
-
+      case '/PLNPage':
+        return MaterialPageRoute(builder: (_) => PLNPage());
+      case '/PPOBReview':
+        return MaterialPageRoute(builder: (_) => PPOBReviewPage(routeArgument: args as RouteArgument));
       
       case '/SHU':
         return MaterialPageRoute(builder: (_) => SHUPage());

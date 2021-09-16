@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../Config/color.dart';
 import 'info_carousel_item.dart';
 
 class InfoPromoCarousel extends StatelessWidget {
@@ -24,13 +23,13 @@ class InfoPromoCarousel extends StatelessWidget {
                   "Info dan Promo Spesial",
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                Text(
-                  "Lihat Semua",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: mainColor),
-                )
+                // Text(
+                //   "Lihat Semua",
+                //   style: TextStyle(
+                //       fontSize: 12,
+                //       fontWeight: FontWeight.w600,
+                //       color: mainColor),
+                // )
               ],
             ),
           ),
